@@ -1,0 +1,88 @@
+*{ box-sizing: border-box; }
+html,body,#app{ height:100%; margin:0; }
+body{
+  font-family: var(--font-ui);
+  background: var(--bg);
+  color: var(--fg);
+  -webkit-font-smoothing: antialiased;
+}
+a{ color: inherit; text-decoration: none; }
+
+/* 把 Element Plus 的颜色变量映射到设计 token——这些 token 随 [data-theme="dark"]
+   自动翻转，所以 EP 的表格/输入框/弹窗等会跟着明暗 + 强调色一起变，无需 EP 自带暗色。 */
+:root{
+  --el-color-primary: var(--primary);
+  --el-border-radius-base: var(--radius-sm);
+
+  /* 背景 / 填充 */
+  --el-bg-color: var(--surface);
+  --el-bg-color-page: var(--bg);
+  --el-bg-color-overlay: var(--surface);
+  --el-fill-color-blank: var(--surface);
+  --el-fill-color: var(--surface-2);
+  --el-fill-color-light: var(--surface-2);
+  --el-fill-color-lighter: var(--surface-2);
+  --el-fill-color-extra-light: var(--surface-2);
+  --el-fill-color-dark: var(--surface-3);
+  --el-fill-color-darker: var(--surface-3);
+
+  /* 边框 */
+  --el-border-color: var(--border);
+  --el-border-color-light: var(--border);
+  --el-border-color-lighter: var(--border);
+  --el-border-color-extra-light: var(--border);
+  --el-border-color-dark: var(--border-strong);
+  --el-border-color-darker: var(--border-strong);
+
+  /* 文字 */
+  --el-text-color-primary: var(--fg);
+  --el-text-color-regular: var(--fg);
+  --el-text-color-secondary: var(--fg-muted);
+  --el-text-color-placeholder: var(--fg-subtle);
+  --el-text-color-disabled: var(--fg-subtle);
+
+  /* 表格 */
+  --el-table-bg-color: var(--surface);
+  --el-table-tr-bg-color: var(--surface);
+  --el-table-header-bg-color: var(--surface-2);
+  --el-table-border-color: var(--border);
+  --el-table-text-color: var(--fg);
+  --el-table-header-text-color: var(--fg-muted);
+  --el-table-row-hover-bg-color: var(--surface-2);
+}
+
+/* 暗色下：EP 的 light-N 色阶默认朝白色混（给亮色用），导致 tag/alert 背景在暗色里发白刺眼。
+   这里把色阶改成朝我们的暗色 --surface 混，让淡底标签等在暗色下变成暗色淡底。 */
+[data-theme="dark"]{
+  --el-color-primary-light-3: color-mix(in srgb, var(--el-color-primary) 62%, var(--surface));
+  --el-color-primary-light-5: color-mix(in srgb, var(--el-color-primary) 45%, var(--surface));
+  --el-color-primary-light-7: color-mix(in srgb, var(--el-color-primary) 28%, var(--surface));
+  --el-color-primary-light-8: color-mix(in srgb, var(--el-color-primary) 20%, var(--surface));
+  --el-color-primary-light-9: color-mix(in srgb, var(--el-color-primary) 13%, var(--surface));
+  --el-color-success-light-3: color-mix(in srgb, var(--el-color-success) 62%, var(--surface));
+  --el-color-success-light-5: color-mix(in srgb, var(--el-color-success) 45%, var(--surface));
+  --el-color-success-light-7: color-mix(in srgb, var(--el-color-success) 28%, var(--surface));
+  --el-color-success-light-8: color-mix(in srgb, var(--el-color-success) 20%, var(--surface));
+  --el-color-success-light-9: color-mix(in srgb, var(--el-color-success) 13%, var(--surface));
+  --el-color-warning-light-3: color-mix(in srgb, var(--el-color-warning) 62%, var(--surface));
+  --el-color-warning-light-5: color-mix(in srgb, var(--el-color-warning) 45%, var(--surface));
+  --el-color-warning-light-7: color-mix(in srgb, var(--el-color-warning) 28%, var(--surface));
+  --el-color-warning-light-8: color-mix(in srgb, var(--el-color-warning) 20%, var(--surface));
+  --el-color-warning-light-9: color-mix(in srgb, var(--el-color-warning) 13%, var(--surface));
+  --el-color-danger-light-3: color-mix(in srgb, var(--el-color-danger) 62%, var(--surface));
+  --el-color-danger-light-5: color-mix(in srgb, var(--el-color-danger) 45%, var(--surface));
+  --el-color-danger-light-7: color-mix(in srgb, var(--el-color-danger) 28%, var(--surface));
+  --el-color-danger-light-8: color-mix(in srgb, var(--el-color-danger) 20%, var(--surface));
+  --el-color-danger-light-9: color-mix(in srgb, var(--el-color-danger) 13%, var(--surface));
+  --el-color-info-light-3: color-mix(in srgb, var(--el-color-info) 55%, var(--surface));
+  --el-color-info-light-5: color-mix(in srgb, var(--el-color-info) 40%, var(--surface));
+  --el-color-info-light-7: color-mix(in srgb, var(--el-color-info) 26%, var(--surface));
+  --el-color-info-light-8: color-mix(in srgb, var(--el-color-info) 18%, var(--surface));
+  --el-color-info-light-9: color-mix(in srgb, var(--el-color-info) 12%, var(--surface));
+}
+
+/* 表格正文略小；操作列的文字链接更小更轻，避免与表头/正文一样重 */
+.el-table{ font-size: 13px; }
+.el-table th.el-table__cell{ font-weight: 600; color: var(--fg-muted); }
+.el-table .el-button.is-link{ font-size: 12.5px; font-weight: 500; padding: 2px 1px; }
+.el-table .el-button.is-link + .el-button.is-link{ margin-left: 10px; }

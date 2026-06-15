@@ -1,0 +1,24 @@
+server:
+  port: 8080
+database:
+  host: 127.0.0.1
+  port: 5432
+  user: postgres
+  password: postgres
+  name: go_admin
+  sslmode: disable
+jwt:
+  # ⚠️ 生产务必换成强随机串（泄露 = 任何人可伪造登录）
+  secret: "dev-secret-change-me-please-at-least-32-bytes"
+  accessMinutes: 30
+  refreshDays: 7
+captcha:
+  enabled: true
+login:
+  maxFailCount: 5
+  lockMinutes: 10
+  rateLimitPerMinute: 20
+# 初始超级管理员（仅首次建库时写入；之后在个人中心改密，不会被覆盖）
+admin:
+  username: "admin"
+  password: "admin123"

@@ -1,0 +1,7 @@
+server
+go-admin
+*.out
+coverage.*
+.gitignore
+Dockerfile
+.dockerignore

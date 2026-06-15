@@ -1,0 +1,20 @@
+# Go 后端忽略项（相对 server/）
+# 编译产物（go build 默认按目录名输出二进制）
+/server
+/go-admin
+cmd/server/server
+*.exe
+*.test
+*.out
+coverage.*
+__debug_bin*
+
+# Go workspace（本地多模块开发用）
+go.work
+go.work.sum
+
+# vendoring（默认不提交）
+/vendor/
+
+# 真实配置/密钥（若启用 example 方案，本地真值文件不提交）
+config.local.yaml

@@ -1,0 +1,30 @@
+# 仓库通用忽略（后端见 server/.gitignore，前端见 web/.gitignore）
+
+# ===== OS / editor =====
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# ===== 配置 / 密钥 =====
+.env
+.env.*
+*.local
+
+# ===== 日志 / 临时 =====
+*.log
+tmp/
+/logs/
+
+# ===== 内部过程文档（不提交）=====
+docs/superpowers/plans/
+后台管理项目需求.md
+
+# ===== 构建产物（双保险）=====
+node_modules/
+dist/
+dist-ssr/
+*.exe
+*.test
+*.out

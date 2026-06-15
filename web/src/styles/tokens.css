@@ -1,0 +1,64 @@
+:root{
+  --font-ui: "Manrope", -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+
+  --radius: 12px; --radius-sm: 8px; --radius-lg: 16px;
+
+  --bg: oklch(0.984 0.003 250);
+  --surface: oklch(1 0 0);
+  --surface-2: oklch(0.975 0.004 250);
+  --surface-3: oklch(0.955 0.005 250);
+  --border: oklch(0.918 0.005 250);
+  --border-strong: oklch(0.86 0.006 250);
+  --fg: oklch(0.24 0.012 262);
+  --fg-muted: oklch(0.53 0.012 262);
+  --fg-subtle: oklch(0.66 0.01 262);
+
+  --primary: oklch(0.56 0.16 256);
+  --primary-fg: oklch(0.99 0 0);
+  --primary-soft: color-mix(in oklab, var(--primary) 12%, transparent);
+  --primary-line: color-mix(in oklab, var(--primary) 30%, transparent);
+
+  --success: oklch(0.6 0.14 158);
+  --warning: oklch(0.72 0.15 75);
+  --danger: oklch(0.6 0.2 22);
+  --info: oklch(0.62 0.13 235);
+
+  --shadow-xs: 0 1px 2px rgba(17,24,39,.05);
+  --shadow-sm: 0 1px 2px rgba(17,24,39,.05), 0 1px 3px rgba(17,24,39,.06);
+  --shadow-md: 0 4px 14px rgba(17,24,39,.08), 0 1px 3px rgba(17,24,39,.05);
+  --shadow-lg: 0 18px 40px -12px rgba(17,24,39,.22);
+
+  --sb-w: 252px; --sb-w-collapsed: 68px; --tab-h: 44px; --topbar-h: 60px;
+  --dur: .18s; --ease: cubic-bezier(.4,0,.2,1);
+  color-scheme: light;
+}
+
+[data-theme="dark"]{
+  --bg: oklch(0.18 0.008 264);
+  --surface: oklch(0.215 0.009 264);
+  --surface-2: oklch(0.245 0.01 264);
+  --surface-3: oklch(0.285 0.011 264);
+  --border: oklch(0.31 0.011 264);
+  --border-strong: oklch(0.4 0.012 264);
+  --fg: oklch(0.95 0.005 260);
+  --fg-muted: oklch(0.7 0.012 260);
+  --fg-subtle: oklch(0.56 0.012 260);
+  --primary-fg: oklch(0.16 0.01 260);
+  --shadow-xs: 0 1px 2px rgba(0,0,0,.3);
+  --shadow-sm: 0 1px 3px rgba(0,0,0,.35);
+  --shadow-md: 0 6px 18px rgba(0,0,0,.4);
+  --shadow-lg: 0 22px 48px -12px rgba(0,0,0,.6);
+  color-scheme: dark;
+}
+
+[data-accent="go"]     { --primary: #00ADD8; } /* Go 青（品牌主色 Go #00ADD8 × Vue #42B883）*/
+[data-accent="blue"]   { --primary: oklch(0.56 0.16 256); }
+[data-accent="green"]  { --primary: oklch(0.58 0.14 159); }
+[data-accent="purple"] { --primary: oklch(0.55 0.18 300); }
+[data-accent="orange"] { --primary: oklch(0.66 0.16 54); }
+[data-accent="rose"]   { --primary: oklch(0.6 0.18 13); }
+[data-accent="cyan"]   { --primary: oklch(0.6 0.12 215); }
+
+[data-density="compact"]    { --tab-h: 38px; --topbar-h: 52px; }
+[data-density="comfortable"]{ --tab-h: 44px; --topbar-h: 60px; }
